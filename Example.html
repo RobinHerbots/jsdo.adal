@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="dist/progress.auth.adal.js"></script>
+<script>
+    progress.data.getSession({
+        serviceURI: "https://raddev21.reynaers.org:8081/UserMan",
+        catalogURI: "https://raddev21.reynaers.org:8081/UserMan/static/UserManService.json",
+        authenticationModel: progress.data.Session.AUTH_TYPE_ADAL
+    }).then(function () {
+        var jsdo = new progress.data.JSDO({name: 'Customer'});
+    });
+</script>
+</body>
+</html>

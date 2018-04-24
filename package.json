@@ -1,0 +1,50 @@
+{
+  "name": "jsdo.adal",
+  "version": "0.0.0",
+  "description": "Azure authentication for jsdo",
+  "main": "progress.auth.extension.js",
+  "scripts": {
+    "start": "grunt",
+    "build": "webpack --progress --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AAD",
+    "azure-active-directory",
+    "adal",
+    "authentication",
+    "jsdo",
+    "CloudDataObject"
+  ],
+  "author": "Robin Herbots",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "grunt": "^1.0.2",
+    "grunt-available-tasks": "^0.6.3",
+    "grunt-cli": "^1.2.0",
+    "load-grunt-tasks": "^3.5.2",
+    "grunt-release": "^0.14.0",
+    "awesome-typescript-loader": "^3.4.1",
+    "babel-core": "^6.26.0",
+    "babel-helpers": "^6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "caniuse-db": "^1.0.30000800",
+    "css-loader": "^0.28.9",
+    "jquery": "^2.2.4",
+    "loader-utils": "^1.1.0",
+    "postcss": "^6.0.17",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^2.1.0",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.20.1",
+    "typescript": "^2.7.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "adal-angular": "^1.0.17",
+    "jsdo": "^4.3.12",
+    "jquery": "^3.2.1"
+  }
+}
