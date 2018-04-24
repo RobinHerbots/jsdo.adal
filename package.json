@@ -32,7 +32,6 @@
     "babel-preset-env": "^1.6.1",
     "caniuse-db": "^1.0.30000800",
     "css-loader": "^0.28.9",
-    "jquery": "^2.2.4",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",
     "postcss-cssnext": "^3.1.0",
