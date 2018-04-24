@@ -1,0 +1,3 @@
+[submodule "JSDO"]
+	path = JSDO
+	url = https://github.com/progress/JSDO.git

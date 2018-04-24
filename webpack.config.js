@@ -54,13 +54,14 @@ const rules = {
 }
 
 module.exports = {
-    entry: "./lib/progress.auth.extension.js",
+    entry: "./lib/progress.auth.adal.js",
     output: {
         path: __dirname,
         filename: "./dist/progress.auth.adal.js"
     },
     externals: {
-        "jquery": "jQuery"
+        "jquery": "jQuery",
+        "progress": "progress"
     },
     module: {
         rules: [
