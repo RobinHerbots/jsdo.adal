@@ -1995,10 +1995,8 @@ limitations under the License.
                 storeSessionInfo("deviceIsOnline", deviceIsOnline);
                 storeSessionInfo("restApplicationIsOnline", restApplicationIsOnline);
                 if (that._authProvider) {
-                    storeSessionInfo("_authProvider.init", {
-                        uri: that._authProvider.uri,
-                        authenticationModel: that._authProvider.authenticationModel
-                    });
+                    storeSessionInfo("_authProvider.init", { uri: that._authProvider.uri,
+                        authenticationModel: that._authProvider.authenticationModel });
                 }
                 storeSessionInfo(_storageKey, true);
             }
@@ -2953,7 +2951,7 @@ limitations under the License.
                     // for Form auth, any error on logout is an error
                     logoutSucceeded = false;
 
-                    // page refresh - we should call _reinitializeAfterLogout, or do something, so that
+                    // page refresh - we should call _reinitializeAfterLogout, or do something, so that 
                     // caller can try logging in again (this is not a problem specific to page refresh,
                     // but the case of a page refresh after a server has gone down emphasizes it)
 
@@ -3690,7 +3688,7 @@ limitations under the License.
         };
 
         // TODO for API revamp: get rid of this method and replace it with implementations
-        //    of AUthenticationImplementation.openRequest that are specific to the
+        //    of AUthenticationImplementation.openRequest that are specific to the 
         //    auth models (assuming we can use some sort of subclassing or interface design)
         //   (and when we remove this, remove the calls to it in this file)
         /*   _setXHRCredentials  (intended for progress.data library use only)
@@ -4009,8 +4007,8 @@ limitations under the License.
                     if (storedAuthModel !== options.authenticationModel || storedURI !== newURI) {
                         clearAllSessionInfo();
                     } else {
-                        // Note: be sure we have set authProvider (if any) from options before
-                        // calling setSessionInfoFromStorage (important so that the logic in
+                        // Note: be sure we have set authProvider (if any) from options before 
+                        // calling setSessionInfoFromStorage (important so that the logic in 
                         // setSessionInfoFromStorage that re-creates an AuthenticationProvider
                         // after page refresh only gets used if the app is using the old JSDOSession.login)
                         setSessionInfoFromStorage(_storageKey);
@@ -4182,7 +4180,6 @@ limitations under the License.
     //setup inheritance for Session -- specifically for incorporating an Observable object 
     progress.data.Session.prototype = new progress.util.Observable();
     progress.data.Session.prototype.constructor = progress.data.Session;
-
     function validateSessionSubscribe(args, evt, listenerData) {
         listenerData.operation = undefined;
         var found = false;
@@ -4220,7 +4217,6 @@ limitations under the License.
             }
         }
     }
-
     // events supported by Session
     progress.data.Session.prototype._eventNames = ["offline", "online", "afterLogin", "afterAddCatalog", "afterLogout", "afterDisconnect"];
     // callback to validate subscribe and unsubscribe
@@ -4389,10 +4385,8 @@ limitations under the License.
                 myDeferred = deferred;
             }
 
-            settlePromise(myDeferred, result === progress.data.Session.SUCCESS ? true : false, result, {
-                errorObject: errorObject,
-                xhr: xhr
-            });
+            settlePromise(myDeferred, result === progress.data.Session.SUCCESS ? true : false, result, { errorObject: errorObject,
+                xhr: xhr });
         }
 
         function onAfterAddCatalog(pdsession, result, errorObject, xhr) {
@@ -4414,23 +4408,21 @@ limitations under the License.
 
                     result = result || progress.data.Session.GENERAL_FAILURE;
 
-                    /* Set a property on the deferred to indicates that the "overall" result was
-                       a failure. When we decide whether to reject or resolve the promise, we reject
+                    /* Set a property on the deferred to indicates that the "overall" result was 
+                       a failure. When we decide whether to reject or resolve the promise, we reject 
                        if it's set to GENERAL_FAILURE, otherwise we resolve the promise
-                       (really only need to set this once, but simpler code if we just set (or possibly
+                       (really only need to set this once, but simpler code if we just set (or possibly 
                        re-set) it whenever we find an error, plus if, at some point while we're still
-                       processing, it's important to know whether we've already had an error, we can
+                       processing, it's important to know whether we've already had an error, we can 
                        check the property)
                      */
                     deferred._overallCatalogResult = progress.data.Session.GENERAL_FAILURE;
                 }
 
-                deferred._results[xhr._catalogIndex] = {
-                    catalogURI: xhr._catalogURI,
+                deferred._results[xhr._catalogIndex] = { catalogURI: xhr._catalogURI,
                     result: result,
                     errorObject: errorObject,
-                    xhr: xhr
-                };
+                    xhr: xhr };
                 deferred._numCatalogsProcessed += 1;
                 if (deferred._numCatalogsProcessed === deferred._numCatalogs) {
                     deferred._processedPromise = true;
@@ -4455,10 +4447,8 @@ limitations under the License.
                     result = progress.data.Session.SUCCESS;
                     fulfill = true;
                 }
-                settlePromise(xhr._deferred, fulfill, result, {
-                    errorObject: errorObject,
-                    xhr: xhr
-                });
+                settlePromise(xhr._deferred, fulfill, result, { errorObject: errorObject,
+                    xhr: xhr });
             }
         }
 
@@ -4467,10 +4457,8 @@ limitations under the License.
             if (xhr && xhr._deferred) {
                 settlePromise(xhr._deferred, args.pingResult, // this tells settlePromise whether to resolve or reject
                 args.pingResult, // this is the result value passed to the promise handler
-                {
-                    offlineReason: args.offlineReason,
-                    xhr: xhr
-                });
+                { offlineReason: args.offlineReason,
+                    xhr: xhr });
             }
         }
 
@@ -4656,8 +4644,7 @@ limitations under the License.
                 errorObject = undefined;
                 addResult = undefined;
                 try {
-                    addResult = _pdsession.addCatalog({
-                        catalogURI: catalogURIs[catalogIndex],
+                    addResult = _pdsession.addCatalog({ catalogURI: catalogURIs[catalogIndex],
                         async: true,
                         userName: username,
                         password: password,
@@ -4665,8 +4652,7 @@ limitations under the License.
                         catalogIndex: catalogIndex,
                         iOSBasicAuthTimeout: iOSBasicAuthTimeout,
                         authProvider: authProvider,
-                        offlineAddCatalog: true
-                    }); // OK to get catalog if offline
+                        offlineAddCatalog: true }); // OK to get catalog if offline
                 } catch (e) {
                     errorObject = new Error("JSDOSession: Unable to send addCatalog request. " + e.message);
                 }
@@ -4684,12 +4670,10 @@ limitations under the License.
                     if (errorObject) {
                         addResult = progress.data.Session.GENERAL_FAILURE;
                     }
-                    deferred._results[catalogIndex] = {
-                        catalogURI: catalogURIs[catalogIndex],
+                    deferred._results[catalogIndex] = { catalogURI: catalogURIs[catalogIndex],
                         result: addResult,
                         errorObject: errorObject,
-                        xhr: undefined
-                    };
+                        xhr: undefined };
                     deferred._numCatalogsProcessed += 1;
                 }
             }
@@ -4760,11 +4744,9 @@ limitations under the License.
             }
 
             try {
-                _pdsession.ping({
-                    async: true,
+                _pdsession.ping({ async: true,
                     deferred: deferred,
-                    onCompleteFn: onPingComplete
-                });
+                    onCompleteFn: onPingComplete });
             } catch (e) {
                 throw new Error("JSDOSession: Unable to send ping request. " + e.message);
             }
@@ -4799,8 +4781,7 @@ limitations under the License.
                             info;
 
                         if (xhr.readyState === 4) {
-                            info = {
-                                xhr: xhr,
+                            info = { xhr: xhr,
                                 offlineReason: undefined,
                                 fireEventIfOfflineChange: true,
                                 usingOepingFormat: false
@@ -4939,14 +4920,12 @@ limitations under the License.
 
         _name = options.name;
 
-        _pdsession = new progress.data.Session({
-            _storageKey: _name,
+        _pdsession = new progress.data.Session({ _storageKey: _name,
             _silent: true,
             authenticationModel: options.authenticationModel,
             serviceURI: options.serviceURI,
             jsdosession: this,
-            authProvider: options.authProvider
-        });
+            authProvider: options.authProvider });
 
         try {
             if (options.context) {
@@ -4963,7 +4942,6 @@ limitations under the License.
     //set up inheritance for JSDOSession -- specifically for incorporating an Observable object 
     progress.data.JSDOSession.prototype = new progress.util.Observable();
     progress.data.JSDOSession.prototype.constructor = progress.data.JSDOSession;
-
     function validateJSDOSessionSubscribe(args, evt, listenerData) {
         listenerData.operation = undefined;
         var found = false;
@@ -5001,7 +4979,6 @@ limitations under the License.
             }
         }
     }
-
     // events supported by JSDOSession
     progress.data.JSDOSession.prototype._eventNames = ["offline", "online"];
     // callback to validate subscribe and unsubscribe

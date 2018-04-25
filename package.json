@@ -2,7 +2,10 @@
   "name": "jsdo.adal",
   "version": "0.0.1",
   "description": "Azure authentication for jsdo",
-  "main": "dist/progress.auth.extension.js",
+  "main": "dist/progress.auth.adal.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "start": "grunt",
     "build": "webpack --progress --config webpack.config.js",
