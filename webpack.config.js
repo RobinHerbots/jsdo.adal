@@ -50,6 +50,22 @@ const rules = {
                 }
             }
         ]
+    },
+    progress_util: {
+        test: require.resolve('./JSDO/src/progress.util.js'),
+        use: 'imports-loader?progress=>window.progress'
+    },
+    progress_session: {
+        test: require.resolve('./JSDO/src/progress.session.js'),
+        use: 'imports-loader?progress=>window.progress'
+    },
+    progress: {
+        test: require.resolve('./JSDO/src/progress.js'),
+        use: 'imports-loader?progress=>window.progress'
+    },
+    progress_auth: {
+        test: require.resolve('./JSDO/src/auth/progress.auth.js'),
+        use: 'imports-loader?progress=>window.progress'
     }
 }
 
@@ -60,8 +76,8 @@ module.exports = {
         filename: "./dist/progress.auth.adal.js"
     },
     externals: {
-        "jquery": "jQuery",
-        "progress": "progress"
+        "window": "window",
+        "jquery": "jQuery"
     },
     module: {
         rules: [
@@ -69,7 +85,17 @@ module.exports = {
             rules.js,
             rules.ts,
             rules.styles
+            // rules.progress_util,
+            // rules.progress_session,
+            // rules.progress,
+            // rules.progress_auth
         ]
+    },
+    resolve: {
+        extensions: ['.js'],
+        alias: {
+            'progress.loader': path.resolve(__dirname, './lib/progress.loader')  // <-- When you build or restart dev-server, you'll get an error if the path to your utils.js file is incorrect.
+        }
     },
     plugins: [
         new webpack.SourceMapDevToolPlugin({
@@ -81,18 +107,10 @@ module.exports = {
         }),
         new webpack.LoaderOptionsPlugin({
             debug: true
+        }),
+        new webpack.ProvidePlugin({
+            'progress': 'progress.loader'
         })
     ],
-    bail: true,
-    // devServer: {
-    // 	publicPath: '/',
-    // 	stats: {
-    // 		colors: true
-    // 	},
-    // 	host: '0.0.0.0',
-    // 	inline: true,
-    // 	port: '8080',
-    // 	quiet: false,
-    // 	noInfo: false,
-    // },
+    bail: true
 };
