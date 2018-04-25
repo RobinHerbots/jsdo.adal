@@ -1,5 +1,5 @@
 # jsdo.adal
-Copyright (c) 2017 - 2018 Robin Herbots Licensed under the MIT license (http://opensource.org/licenses/mit-license.php)
+Copyright (c) 2018 Robin Herbots Licensed under the MIT license (http://opensource.org/licenses/mit-license.php)
 
 [![donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LXZNPVLB4P7GU)
 
