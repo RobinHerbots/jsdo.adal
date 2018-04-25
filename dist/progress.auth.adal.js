@@ -83,6 +83,10 @@ exports.default = progress;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(progress) {
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 __webpack_require__(2);
 
 __webpack_require__(3);
@@ -106,7 +110,7 @@ window.AuthenticationContext = _adalAngular2.default; //AuthenticationContext  s
  * Version: 0.0.0-dev
  */
 
-window.progress = progress;
+window.progress = progress; //progress object is hooked by the providerplugin (webpack) => expose on window
 
 progress.data.AuthenticationProviderAdal = function (uri, adalConfig) {
     var authContext = new _adalAngular2.default(adalConfig);
@@ -208,6 +212,8 @@ progress.data.AuthenticationProviderAdal = function (uri, adalConfig) {
 
 //inherit from base AuthenticationProvider
 progress.data.AuthenticationProviderAdal.prototype = progress.data.AuthenticationProvider.prototype;
+
+exports.default = progress;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
