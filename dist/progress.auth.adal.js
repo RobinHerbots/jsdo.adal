@@ -206,6 +206,8 @@ progress.data.AuthenticationProviderAdal = function (uri, adalConfig) {
             }, function () {
                 callback(new Error(progress.data._getMsgText("jsdoMSG125", "AuthenticationProvider")));
             });
+        } else {
+            callback(new Error(progress.data._getMsgText("jsdoMSG125", "AuthenticationProvider")));
         }
     };
 };
