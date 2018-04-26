@@ -77,3 +77,13 @@ var progress = require('jsdo.adal');
 //es6
 import progress from "jsdo.adal";
 ```
+
+##### In your config
+```
+...
+   externals: {
+        "window": "window",
+        "jquery": "jQuery"
+    },
+...
+```

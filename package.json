@@ -2,9 +2,11 @@
   "name": "jsdo.adal",
   "version": "0.0.2",
   "description": "Azure authentication for jsdo",
-  "main": "dist/progress.auth.adal.js",
+  "main": "lib/progress.auth.adal.js",
   "files": [
-    "dist/"
+    "dist/",
+    "lib/",
+    "JSDO/",
   ],
   "scripts": {
     "start": "grunt",
@@ -23,32 +25,23 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-helpers": "^6.24.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "grunt": "^1.0.2",
     "grunt-available-tasks": "^0.6.3",
     "grunt-cli": "^1.2.0",
-    "load-grunt-tasks": "^3.5.2",
     "grunt-release": "^0.14.0",
-    "awesome-typescript-loader": "^3.4.1",
-    "babel-core": "^6.26.0",
-    "babel-helpers": "^6.24.1",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "caniuse-db": "^1.0.30000800",
-    "css-loader": "^0.28.9",
-    "loader-utils": "^1.1.0",
-    "postcss": "^6.0.17",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-loader": "^2.1.0",
+    "imports-loader": "^0.8.0",
+    "load-grunt-tasks": "^3.5.2",
     "source-map-loader": "^0.2.3",
-    "style-loader": "^0.20.1",
-    "typescript": "^2.7.1",
-    "webpack": "^3.10.0",
-    "exports-loader": "^0.7.0",
-    "script_loader": "^1.2.0",
-    "imports-loader": "^0.8.0"
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
   },
   "dependencies": {
     "adal-angular": "^1.0.17",
+    "imports-loader": "^0.8.0",
     "jquery": "^3.2.1"
   }
 }
