@@ -1,12 +1,10 @@
 {
   "name": "jsdo.adal",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Azure authentication for jsdo",
-  "main": "lib/progress.auth.adal.js",
+  "main": "index.js",
   "files": [
-    "dist/",
-    "lib/",
-    "JSDO/src/"
+    "dist/"
   ],
   "scripts": {
     "start": "grunt",
