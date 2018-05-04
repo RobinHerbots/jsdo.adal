@@ -63,6 +63,58 @@ For more information see the <a href="https://documentation.progress.com/output/
 </html>
 ```
 
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="dist/progress.auth.adal.js"></script>
+<script>
+      var serviceURI = "<Service URI>";
+      var catalogURI = "<Catalog URI>";
+      var adalConfig = {
+         instance: "https://login.microsoftonline.com/",
+         tenant: "tenantid",
+         clientId: "clientid",
+         postLogoutRedirectUri: "",
+         redirectUri: window.location.origin + window.location.pathname.replace(/\/$/, ""),
+         cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+         anonymousEndpoints: [],
+         endpoints: {
+            "enpointurl": "resourceid"
+         },
+         extraQueryParameter: `scope=openid,profile,email`,
+         loadFrameTimeout: 12000
+       }
+
+       var pdSession = new progress.data.JSDOSession({
+               serviceURI: serviceURI,
+               authenticationModel: progress.data.Session.AUTH_TYPE_ADAL,
+      });
+
+       pdSession.login(adalConfig).then(function (session, result, info) {
+              sess.addCatalog(catalogURI).then(function () {
+                  var jsdo = new progress.data.JSDO({name: 'Customer'});
+                  jsdo.fill("CustNum <= 11").then(function (jsdo, success, request) {
+                      jsdo.ttCustomer.foreach(function (customer) {
+                          document.write(customer.data.CustNum + ' ' + customer.data.Name + '<br>');
+                      });
+                  }, function () {
+                      console.log("Error while reading records.");
+                  });
+              }), function () {
+                  console.log("Error while creating session.");
+              }
+       });
+</script>
+</body>
+</html>
+```
+
 #### Webpack
 
 ##### Install the package
