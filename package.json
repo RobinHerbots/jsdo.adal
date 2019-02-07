@@ -1,6 +1,6 @@
 {
   "name": "jsdo.adal",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Azure authentication for jsdo",
   "main": "index.js",
   "files": [
