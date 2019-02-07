@@ -1,2 +1,2 @@
-import "./dist/progress.auth.adal";
+import "./lib/progress.auth.adal";
 export default window.progress;
